@@ -1,0 +1,281 @@
+! 
+!             __    ___          ____    
+!    __ _____/ /__ / _/__ ___ __/ / /____
+!  _ \ \ / _  / -_) _/ _ `/ // / / __(_-<
+! (_)_\_\\_,_/\__/_/ \_,_/\_,_/_/\__/___/
+
+
+! ~/.Xresources
+!
+! Run ‘xrdb ~/.Xresources’ to properly re-read this file. Check with ‘xrdb -query’
+
+
+! This is a comment
+!
+! SYNTAX
+!	<WM_CLASS>.<optionname>: <value>
+!		Usually urxvt have ‘urxvt’ and ‘URxvt’ as its WM classes.
+!	 	WM_CLASS in the example above may be:
+!		- ‘rxvt’, then same options derived from rxvt will work for urxvt;
+!		- ‘URxvt’, these options will not work for rxvt.
+!	<optionname>: <value>
+!		WM_CLASS will be assumed to terminal.
+!	[WM_CLASS]*<optionname>: <value>
+!		Options that have WM_CLASS matching the first WM_CLASS of the window
+!		(which may be set with -name option for urxvt) will take priority.
+!		If no WM_CLASS specfied, then option will match against any WM_CLASS,
+!       i.e. any window.
+! See output of xprop for window class information.
+
+
+!--- Xft fonts settings
+!xft.dpi: 180
+Xft.hinting: true
+!Xft.rgba: none
+Xft.autohint: false
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault
+
+!Xft.dpi:                    92
+Xft.antialias:              true
+Xft.rgba:                   rgb
+
+!URxvt.depth: 0
+
+URxvt.intensityStyles:  false
+
+! fonts
+!URxvt.font: xft:Ttyp0:pixelsize=12:size=12:hinting=true:hintstyle=3:autohint=false:antialias=true
+!URxvt*font: xft:terminus:antialias=true:pixelsize=13, xft:ttyp0:antialias=false:pixelsize=bold, xft:DejaVu Sans Mono:style=Book:pixelsize=13
+!URxvt.letterSpace: -3
+
+URxvt.font: xft:UW Ttyp0:pixelsize=16:antialias=true
+!URxvt.font: xft:UW Ttyp0:pixelsize=6:antialias=true
+URxvt.letterSpace: 1
+
+! disable the ugly floatingUrxvt s scrollbar
+URxvt.scrollBar: false
+
+
+! colorscheme
+! special
+floatingUrxvt.foreground:   #b9b9b9
+floatingUrxvt.background:   #141414
+
+uwks1.foreground:   #b9b9b9
+uwks1.background:   #141414
+
+weechat.foreground: #D3DAE3
+weechat.background: #101010
+
+
+! black
+floatingUrxvt.color0:       #4f4858
+floatingUrxvt.color8:       #545d67
+
+! red
+floatingUrxvt.color1:       #c05c47
+floatingUrxvt.color9:       #c16772
+
+! green
+floatingUrxvt.color2:       #428e8e
+floatingUrxvt.color10:      #afda6e
+
+! yellow
+floatingUrxvt.color3:       #e4b226
+floatingUrxvt.color11:      #ebcf1a
+
+! blue
+floatingUrxvt.color4:       #4457a3
+floatingUrxvt.color12:      #4880a5
+
+! magenta
+floatingUrxvt.color5:       #903a62
+floatingUrxvt.color13:      #9568a1
+
+! cyan
+floatingUrxvt.color6:       #7aa1dc
+floatingUrxvt.color14:      #abbcda
+
+! white
+floatingUrxvt.color7:       #c4b7c5
+floatingUrxvt.color15:      #ffeefc
+
+
+
+
+
+
+! ----
+
+
+! black
+uwks1.color0:       #4f4858
+uwks1.color8:       #545d67
+
+! red
+uwks1.color1:       #c05c47
+uwks1.color9:       #c16772
+
+! green
+uwks1.color2:       #428e8e
+uwks1.color10:      #afda6e
+
+! yellow
+uwks1.color3:       #e4b226
+uwks1.color11:      #ebcf1a
+
+! blue
+uwks1.color4:       #4457a3
+uwks1.color12:      #4880a5
+
+! magenta
+uwks1.color5:       #903a62
+uwks1.color13:      #9568a1
+
+! cyan
+uwks1.color6:       #7aa1dc
+uwks1.color14:      #abbcda
+
+! white
+uwks1.color7:       #c4b7c5
+uwks1.color15:      #ffeefc
+
+
+
+
+! ----
+
+
+! black
+weechat.color0:       #323232
+weechat.color8:       #525252
+
+! red
+weechat.color1:       #cc6666
+weechat.color9:       #cc6666
+
+! green
+weechat.color2:       #8e8e8e
+weechat.color10:      #8e8e8e
+
+! yellow
+weechat.color3:       #a0a0a0
+weechat.color11:      #a0a0a0
+
+! blue
+weechat.color4:       #686868
+weechat.color12:      #686868
+
+! magenta
+weechat.color5:       #747474
+weechat.color13:      #747474
+
+! cyan
+weechat.color6:       #868686
+weechat.color14:      #868686
+
+! white
+weechat.color7:       #b9b9b9
+weechat.color15:      #f7f7f7
+
+
+! cursor
+URxvt.cursorColor:  #e4b226
+URxvt.cursorColor2: #000000
+URxvt.cursorBlink: true
+
+
+! size
+!URxvt.geometry: 90x22
+
+
+! padding
+URxvt.internalBorder: 20
+
+
+!--- Terminal settings
+!
+!termName rxvt-unicode
+!modifier: alt, meta, hyper, super, mod1, mod2, mod3, mod4, mod5;
+URxvt.scrollTtyOutput: false
+URxvt.scrollTtyKeypress: true
+URxvt.scrollWithBuffer: true
+URxvt.loginShell: false
+URxvt.saveLines: 3000
+!
+!-- Look and feel
+!
+!! Scroll inside of subscreen, less etc.
+URxvt.preeditType:     Root
+URxvt.secondaryWheel:  true
+URxvt.cursorUnderline: false
+
+
+floatingUrxvt.transparent: false
+uwks1.transparent: false
+
+URxvt.borderless: false
+
+floatingUrxvt.shading: 30
+uwks1.shading: 30
+
+URxvt.urgentOnBell: false 
+
+!-- Perl stuff: URL matching etc.
+!
+!! These characters are used as delimiters for double-click word selection
+!! by default, but may be overriden
+URxvt.cutchars: `\\^""''&()*,;<=>?@[]{|}.:+-
+URxvt.perl-ext-common: default,matcher
+!grep text/html .local/share/applications/mimeapps.list 
+URxvt.urlLauncher: firefox
+URxvt.underlineURLs: true
+! NB: 2 = middle mouse button (that will run urls instead of selecting text)
+URxvt.matcher.button: 3
+!selection.pattern-0: ( at .*? line \\d+)
+!selection.pattern-1: ^(/[^:]+):\
+!selection-autotransform.0: s/^([^:[:space:]]+):(\\d+):?$/:e \\Q$1\\E\\x0d:$2\\x0d/
+!selection-autotransform.1: s/^ at (.*?) line (\\d+)$/:e \\Q$1\\E\\x0d:$2\\x0d/
+
+
+URxvt.colorBD: #ffffff
+!URxvt.underlineColor: #75507B
+!cursorColor:#e0e080
+!!		scrollbar color
+!scrollColor #010203
+!!		the color of zone scrollbar get through
+!throughColor: #8080f0
+!highlightColor: #f0f0f0
+!highlightTextColor: #000000
+
+one_command_shell.geometry: 70x1
+one_command_shell.borderless: false
+!!mc_shell.font: xft:Gentium Basic:autohint=true:size=10
+
+!!Xcursor.theme: default
+Xcursor.theme: Adwaita
+
+!! Make C-; send the same keycode as C-u, which removes the line to the left
+!!   of the cursor and copies it to the kill ring buffer. That way it fits
+!!   better with the other bindings for kill ring.
+!! It must be bound here, because C-; along with several other C- bindings
+!!   cannot be bound in ~/.inputrc as a usual hotkey.
+URxvt.keysym.Control-semicolon: \025
+
+
+! ------------------------------------------------------------------------------
+! ROFI Color theme
+! Copyright: 2017 leofa
+! ------------------------------------------------------------------------------
+! "Color scheme for normal row" Set from: File
+rofi.color-normal:                   argb:0383c4a, #c4cbd4, argb:96404552, #4084d6, #f9f9f9
+! "Color scheme for urgent row" Set from: File
+rofi.color-urgent:                   argb:02d303b, #cc6666, argb:e52d303b, #a54242, #f9f9f9
+! "Color scheme for active row" Set from: File
+rofi.color-active:                   argb:02d303b, #b5bd68, argb:e42d303b, #8c9440, #f9f9f9
+! "Color scheme window" Set from: File
+rofi.color-window:                   argb:f22d303b, #7c8389, #1d1f21
+! "Separator style (none, dash, solid)" Set from: XResources
+rofi.separator-style:                solid
+

@@ -1,0 +1,17 @@
+DEVICE="br0"
+
+ip link add name $DEVICE type bridge
+ip addr add 192.168.0.1/24 dev $DEVICE
+ip link set $DEVICE up
+
+
+sysctl net.ipv4.ip_forward=1
+iptables -t nat -A POSTROUTING -o eno1 -j MASQUERADE
+iptables -A FORWARD -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+iptables -A FORWARD -i $DEVICE -o eno1 -j ACCEPT
+
+#vde_switch -tap tap0 -daemon -mod 660 -group users
+#ip addr add 192.168.100.254/24 dev tap0
+
+
+dnsmasq --interface=$DEVICE --bind-interfaces --dhcp-range=192.168.0.127,192.168.0.190

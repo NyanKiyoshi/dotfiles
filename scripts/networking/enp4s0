@@ -1,0 +1,18 @@
+# globals: interfaces
+DEVICE=enp4s0
+MASTER_DEVICE=eno1
+
+# set-up the interface
+ip link set $DEVICE type bridge
+ip addr add 192.168.10.1/24 dev $DEVICE
+ip link set $DEVICE up
+
+# set-up the redirection between the bridge and the master interface
+sysctl net.ipv4.ip_forward=1
+
+iptables -t nat -A POSTROUTING -o $MASTER_DEVICE -j MASQUERADE
+iptables -A FORWARD -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+iptables -A FORWARD -i $DEVICE -o $MASTER_DEVICE -j ACCEPT
+
+# set-up the DHCP server
+dnsmasq --interface=$DEVICE --except-interface=lo --bind-interfaces --dhcp-range=192.168.10.127,192.168.10.190

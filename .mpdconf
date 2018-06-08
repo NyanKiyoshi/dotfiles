@@ -1,0 +1,28 @@
+music_directory "~/Music"
+db_file "~/.mpd/mpd.db"
+playlist_directory "~/.mpd/playlists"
+log_file "~/.mpd/mpd.log"
+pid_file "~/.mpd/mpd.pid"
+state_file "~/.mpd/mpdstate"
+
+audio_output {
+        type            "alsa"
+        name            "ALSA Device"
+}
+
+audio_output {
+    type                    "fifo"
+    name                    "my_fifo"
+    path                    "/tmp/mpd.fifo"
+    format                  "44100:16:2"
+}
+
+default_permissions "read,add,control,admin"
+
+input {
+        plugin "curl"
+}
+
+bind_to_address      "localhost"
+bind_to_address      "~/.mpd/mpd.socket"
+
