@@ -12,6 +12,8 @@ blue = #3182bd
 purple = #756bb1
 orange = #de935f
 yellow = #d7a645
+gray = #575757
+darkgray = #272727
 
 [bar/master]
 width = 100%
@@ -30,16 +32,15 @@ font-3 = FontAwesome:size=10;0
 inherit = bar/master
 modules-left = ram cpu up-speed down-speed
 modules-center = workspaces
-modules-right = home root time volume
+modules-right = github home root time volume
 
 [module/network]
 type = internal/network
-interface = eno1
+interface = enp7s0
 ping-interval = 3
 
 format-connected-padding = 1
 label-connected-padding-left = 1
-
 
 accumulate-stats = true
 
@@ -251,6 +252,27 @@ label-visible-padding = 1
 
 label-urgent-padding = 1
 label-urgent-background = ${colors.red}
+
+[module/github]
+type = internal/github
+interval = 30
+
+; Whether empty notifications should be displayed or not
+empty-notifications = true
+
+; Accessing an access token stored in an environment variable
+token = ${file:~/.github/access_token}
+
+label = %notifications%
+label-padding-left = 1
+
+; c.f.: https://github.com/jaagr/polybar/issues/948 
+; because... it's not a button... you cannot click on it.
+format = %{A1:xdg-open https\://github.com/notifications:}<label>%{A}
+format-overline = ${colors.gray}
+format-padding = 1
+format-prefix = 
+format-prefix-foreground = ${colors.gray}
 
 [module/home]
 type = internal/fs

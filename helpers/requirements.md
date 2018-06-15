@@ -7,7 +7,7 @@
 
 ## i3
 
-1. i3-gaps => 4.14.1
+1. i3 => 4.14.1
 1. polybar >= 3.1.0 (compiled with network support)
 1. mpd => 0.20.18
 1. mpc => 0.20.0
