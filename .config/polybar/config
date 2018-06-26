@@ -23,14 +23,14 @@ background = ${colors.background}
 foreground = ${colors.foreground}
 overline-size = 3
 underline-size = 3
-font-0 = "UW Ttyp0:pixelsize=13:antialias=true;0"
-font-1 = MaterialIcons:size=13;2
-font-2 = "Inconsolata:pixelsize=12"
-font-3 = FontAwesome:size=10;0
+font-0 = "UW Ttyp0:pixelsize=13:antialias=true;2"
+font-1 = MaterialIcons:size=13;5
+font-2 = "Inconsolata:pixelsize=12;2"
+font-3 = FontAwesome:size=10;2
 
 [bar/top]
 inherit = bar/master
-modules-left = ram cpu up-speed down-speed
+modules-left = menu-apps ram cpu up-speed down-speed
 modules-center = workspaces
 modules-right = github home root time volume
 
@@ -74,7 +74,6 @@ label-maxlen = 75
 
 [module/volume]
 type = internal/volume
-
 
 ; Soundcard to be used
 master-soundcard = default
@@ -152,14 +151,14 @@ inherit = module/network
 format-connected-foreground = ${colors.green}
 format-connected-overline = ${colors.green}
 
-label-connected = %{A:urxvt -e sudo wifi-menu &:}%{A}
+label-connected = %{A:urxvt -name uwks1 -e sudo wifi-menu &:}%{A}
 label-connected-padding-left = 0
 
 format-disconnected-padding = 1
 format-disconnected-overline = ${colors.yellow}
 format-disconnected-foreground = ${colors.yellow}
 
-label-disconnected = %{A:urxvt -e sudo wifi-menu &:}%{A}
+label-disconnected = %{A:urxvt -name uwks1 -e sudo wifi-menu &:}%{A}
 
 [bar/bottom]
 inherit = bar/master
@@ -170,6 +169,59 @@ modules-left = cpu ram
 modules-center = workspaces
 modules-right = home root time
 
+[module/menu-apps]
+type = custom/menu
+
+; If true, <label-toggle> will be to the left of the menu items (default).
+; If false, it will be on the right of all the items.
+expand-right = true
+
+; Available tags:
+;   <label-toggle> (default) - gets replaced with <label-(open|close)>
+;   <menu> (default)
+;format = <label-toggle> <menu>
+format-overline = ${colors.green}
+format-padding = 1
+format-foreground = ${colors.green}
+
+label-open = 
+label-close = 
+
+; Optional item separator
+; Default: none
+label-separator = 
+label-separator-padding = 1
+
+; "menu-LEVEL-N" has the same properties as "label-NAME" with
+; the additional "exec" property
+;
+; Available exec commands:
+;   menu-open-LEVEL
+;   menu-close
+; Other commands will be executed using "/usr/bin/env sh -c $COMMAND"
+
+menu-0-0 = Browsers
+menu-0-0-exec = menu-open-1
+menu-0-1 = Multimedia
+menu-0-1-exec = menu-open-2
+menu-0-2 = Communication
+menu-0-2-exec = menu-open-3
+
+menu-1-0 = Firefox
+menu-1-0-exec = firefox &
+menu-1-1 = Chromium
+menu-1-1-exec = chromium &
+
+menu-2-0 = ncmpcpp
+menu-2-0-exec = ncmpcpp &
+menu-2-1 = Jetbrains
+menu-2-1-exec = jetbrains-toolbox &
+
+menu-3-0 = Discord
+menu-3-0-exec = discord-canary &
+menu-3-1 = Thunderbird
+menu-3-1-exec = thunderbird &
+
 [module/cpu]
 type = internal/cpu
 interval = 2
@@ -179,7 +231,7 @@ format-prefix-foreground = ${colors.green}
 format-overline = ${colors.green}
 format-padding = 1
 
-label = %{A:urxvt -e htop &:}%percentage:2%%%{A}
+label = %{A:urxvt -name uwks1 -e htop &:}%percentage:2%%%{A}
 label-padding-left = 1
 
 [module/ram]
@@ -191,7 +243,7 @@ format-prefix-foreground = ${colors.blue}
 format-overline = ${colors.blue}
 format-padding = 1
 
-label = %{A:urxvt -e htop &:}%percentage_used:2%%%{A}
+label = %{A:urxvt -name uwks1 -e htop &:}%percentage_used:2%%%{A}
 label-padding-left = 1
 
 [module/battery]
@@ -283,7 +335,7 @@ format-mounted-overline = ${colors.blue}
 format-mounted-padding = 1
 format-mounted-prefix = 
 format-mounted-prefix-foreground = ${colors.blue}
-label-mounted = %{A:urxvt -e ranger &:}%percentage_free%%%{A}
+label-mounted = %{A:urxvt -name uwks1 -e ranger &:}%percentage_free%%%{A}
 label-mounted-padding-left = 1
 
 [module/root]
@@ -295,7 +347,7 @@ format-mounted-overline = ${colors.orange}
 format-mounted-padding = 1
 format-mounted-prefix = 
 format-mounted-prefix-foreground = ${colors.orange}
-label-mounted = %{A:urxvt --hold -e df -h &:}%percentage_free%%%{A}
+label-mounted = %{A:urxvt -name uwks1 --hold -e df -h &:}%percentage_free%%%{A}
 label-mounted-padding-left = 1
 
 [module/time]
