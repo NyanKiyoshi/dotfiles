@@ -7,13 +7,13 @@ set $mod Mod4
 set $wks1  "1:terms"
 set $wks2  "2:vim"
 set $wks3  "3:web"
-set $wks4  "4:irc"
-set $wks5  "5:chat"
-set $wks6  "6:mail"
-set $wks7  "7:media"
+set $wks4  "4:chat"
+set $wks5  "5:mail"
+set $wks6  "6"
+set $wks7  "7"
 set $wks8  "8"
 set $wks9  "9"
-set $wks10 "10:monitoring"
+set $wks10 "10"
 
 
 # Colors vars
@@ -209,22 +209,20 @@ for_window [class="feh"]               floating enable
 for_window [class="Xfe"]               floating enable
 for_window [class="Ristretto"]         floating enable
 for_window [class="Pavucontrol"]       floating enable
-for_window [class="Vlc"]               floating enable
-for_window [class="^Gimp-"]            floating enable
 for_window [class="TelegramDesktop"]   move position center
 
 for_window [class="^URxvt$" instance="^floatingUrxvt$"] floating enable
 
-assign [class="discord"]                        $wks5
-
+# Workspace assignments
 assign [class="Firefox"]                        $wks3
+assign [class="discord"]                        $wks4
 assign [class="^URxvt$" instance="^weechat$"]   $wks4
-assign [class="TelegramDesktop"]                $wks5
-assign [class="Thunderbird"]                    $wks6
-assign [class="Kodi"]                           $wks7
-assign [class="Clementine"]                     $wks10
+assign [class="TelegramDesktop"]                $wks4
+assign [class="Thunderbird"]                    $wks5
 
-exec_always --no-startup-id sh -c 'killall polybar; polybar top -r -c .config/polybar/config'
+# Assign polybar to each given monitor
+# Note: list available monitors using `xrandr -q`
+exec_always --no-startup-id sh -c 'killall polybar; for monitor in HDMI-1 DVI-I-1; do (MONITOR=$monitor polybar top -r -c .config/polybar/config &); done'
 
 exec_always --no-startup-id feh --bg-scale ~/.wallpaper.jpg
 
