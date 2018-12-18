@@ -30,7 +30,7 @@ font-3 = FontAwesome:size=10;2
 
 [bar/top]
 inherit = bar/master
-monitor = ${env:MONITOR:HDMI-1}
+monitor = ${env:MONITOR:HDMI-0}
 modules-left = menu-apps ram cpu up-speed down-speed
 modules-center = workspaces
 modules-right = github home root time volume
@@ -74,7 +74,7 @@ label = %title%
 label-maxlen = 75
 
 [module/volume]
-type = internal/volume
+type = internal/alsa
 
 ; Soundcard to be used
 master-soundcard = default

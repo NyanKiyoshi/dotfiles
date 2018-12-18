@@ -218,7 +218,7 @@ assign [class="Thunderbird"]                    $wks5
 
 # Assign polybar to each given monitor
 # Note: list available monitors using `xrandr -q`
-exec_always --no-startup-id sh -c 'killall polybar; for monitor in HDMI-1 DVI-I-1; do (MONITOR=$monitor polybar top -r -c .config/polybar/config &); done'
+exec_always --no-startup-id sh -c 'killall polybar; for monitor in HDMI-0 DP-1; do (MONITOR=$monitor polybar top -r -c .config/polybar/config &); done'
 
 exec_always --no-startup-id feh --bg-scale ~/.wallpaper.jpg
 
@@ -241,5 +241,5 @@ bindsym XF86AudioPrev        exec mpc prev
 bindsym XF86AudioNext        exec mpc next
 
 exec_always scripts/configure-keyboard.sh
-exec_always xrandr --output DVI-I-1 --primary --left-of HDMI-1
+exec_always xrandr --output DVI-I-1 --primary --right-of HDMI-1
 
