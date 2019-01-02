@@ -14,7 +14,8 @@
 1. rofi == 0.15.12 (**DO NOT UPGRADE**)
 1. feh >= 2.24
 1. xfce4-screenshooter => 1.9.1
-
+1. transset-df
+1. xcompmgr
 
 ### [scripts/lock.sh](scripts/lock.sh)
 1. scrot >= 0.8
