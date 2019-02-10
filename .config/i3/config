@@ -229,7 +229,7 @@ exec_always --no-startup-id sh -c 'killall polybar; for monitor in HDMI-0 DP-1; 
 exec_always --no-startup-id feh --bg-scale ~/.wallpaper.jpg
 
 # Enables composite window effects on X11
-exec_always --no-startup-id 'killall xcompmgr; xcompmgr'
+exec_always --no-startup-id 'killall xcompmgr; sleep 0.1 && xcompmgr'
 
 # restarts mpd as it may need to be forced to die on timeouts
 exec_always --no-startup-id sh -c 'pkill -9 mpd; mpd --verbose --stdout --no-daemon'
@@ -250,5 +250,5 @@ bindsym XF86AudioPrev        exec mpc prev
 bindsym XF86AudioNext        exec mpc next
 
 exec_always scripts/configure-keyboard.sh
-exec_always xrandr --output DVI-I-1 --primary --right-of HDMI-1
+exec_always xrandr --output HDMI-0 --primary --right-of DP-1
 
