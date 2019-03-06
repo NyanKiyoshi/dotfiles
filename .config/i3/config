@@ -246,8 +246,8 @@ bindsym XF86AudioRaiseVolume exec amixer sset Master 1+
 bindsym XF86AudioMute        exec amixer sset Master togglemute
 bindsym Shift+XF86Explorer   exec mpc stop
 bindsym XF86Explorer         exec mpc toggle
-bindsym XF86AudioPrev        exec mpc prev
-bindsym XF86AudioNext        exec mpc next
+bindsym XF86AudioPrev        exec --no-startup-id ~/scripts/mpd/mpc-spotify-next-track.sh -prev
+bindsym XF86AudioNext        exec --no-startup-id ~/scripts/mpd/mpc-spotify-next-track.sh
 
 exec_always scripts/configure-keyboard.sh
 exec_always xrandr --output HDMI-0 --primary --right-of DP-1
