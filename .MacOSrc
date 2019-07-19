@@ -1,0 +1,20 @@
+#!/bin/sh
+
+# Show hidden files in finder
+defaults write com.apple.finder AppleShowAllFiles TRUE
+
+# Always show the full path in the title bar
+defaults write com.apple.finder _FXShowPosixPathInTitle TRUE
+
+# Always show the folders first
+defaults write com.apple.finder _FXSortFoldersFirst TRUE
+
+# Disable warning when changing a file's extension
+defaults write com.apple.finder FXEnableExtensionChangeWarning FALSE
+
+# Always use list view as default
+defaults write com.apple.finder FXPreferredViewStyle Nlsv
+
+# restart finder
+killall Finder
+

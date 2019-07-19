@@ -1,0 +1,5 @@
+*.env
+*_settings.py
+.idea/
+.DS_*
+
