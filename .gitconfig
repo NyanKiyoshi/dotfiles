@@ -1,0 +1,12 @@
+[user]
+	signingkey = 13B88B5EC73EF9A01870B96A27256C638F6328F8
+	name = NyanKiyoshi
+	email = hello@vanille.bid
+[commit]
+	gpgsign = true
+[core]
+	excludesfile = ~/.gitignore
+[alias]
+	pushf = push --force-with-lease
+	amend = commit --amend --no-edit
+	s = status
