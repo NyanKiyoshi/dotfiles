@@ -224,7 +224,7 @@ assign [class="Thunderbird"]                    $wks5
 
 # Assign polybar to each given monitor
 # Note: list available monitors using `xrandr -q`
-exec_always --no-startup-id sh -c 'killall polybar; for monitor in HDMI-0; do (MONITOR=$monitor polybar top -r -c .config/polybar/config &); done'
+exec_always --no-startup-id sh -c '~/scripts/start-polybar.sh'
 
 exec_always --no-startup-id feh --bg-scale ~/.wallpaper.jpg
 

@@ -35,6 +35,18 @@ modules-left = menu-apps ram cpu up-speed down-speed
 modules-center = workspaces
 modules-right = github home root time volume
 
+[bar/secondary-top]
+inherit = bar/master
+height = 10
+overline-size = 1
+underline-size = 1
+modules-center = workspaces
+monitor = ${env:MONITOR}
+font-0 = "UW Ttyp0:pixelsize=5:antialias=true;2"
+font-1 = MaterialIcons:size=6;5
+font-2 = "Inconsolata:pixelsize=62"
+font-3 = FontAwesome:size=6;2
+
 [module/network]
 type = internal/network
 interface = enp7s0
@@ -289,10 +301,7 @@ strip-wsnumbers = true
 pin-workspaces = true
 
 ws-icon-0 = 1:terms;
-ws-icon-1 = 2:vim;
 ws-icon-2 = 3:web;
-ws-icon-3 = 4:chat;
-ws-icon-4 = 5:mail;
 ws-icon-default = 
 
 label-focused-padding = 1
