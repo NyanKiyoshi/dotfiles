@@ -15,6 +15,9 @@ defaults write com.apple.finder FXEnableExtensionChangeWarning FALSE
 # Always use list view as default
 defaults write com.apple.finder FXPreferredViewStyle Nlsv
 
+# Always Hide Icons from Desktop
+defaults write com.apple.finder CreateDesktop -bool false
+
 # restart finder
 killall Finder
 
